@@ -137,7 +137,7 @@ class dualBlast(object) :
             blastab.append(part[:15])
         return blastab
     
-    def run_comparison(self, dirPath, qry, ref, min_iden, min_len, n_thread=6) :
+    def run_comparison(self, dirPath, qry, ref, min_iden, min_len, n_thread=1) :
         qryNA = os.path.join(dirPath, 'qryNA')
         qryAA = os.path.join(dirPath, 'qryAA')
         refAA = os.path.join(dirPath, 'refAA')

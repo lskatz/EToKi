@@ -24,7 +24,7 @@ def clust(argv) :
     parser.add_argument('-p', '--prefix', help='[OUTPUT; REQUIRED] prefix of the outputs.', required=True)
     parser.add_argument('-d', '--identity', help='[PARAM; DEFAULT: 0.9] minimum intra-cluster identity.', default=0.9, type=float)
     parser.add_argument('-c', '--coverage', help='[PARAM; DEFAULT: 0.9] minimum intra-cluster coverage.', default=0.9, type=float)
-    parser.add_argument('-t', '--n_thread', help='[PARAM; DEFAULT: 8]   number of threads to use.', default=8, type=int)
+    parser.add_argument('-t', '--n_thread', help='[PARAM; DEFAULT: 1]   number of threads to use.', default=1, type=int)
     parser.add_argument('-a', '--translate', help='[PARAM; DEFAULT: False] activate to cluster in translated sequence.', default=False, action='store_true')
     args = parser.parse_args(argv)
     exemplar, clust = getClust(args.prefix, args.input, args.__dict__)

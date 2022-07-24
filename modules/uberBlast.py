@@ -324,7 +324,7 @@ def getCIGAR(data) :
 class RunBlast(object) :
     def __init__(self) :
         self.qrySeq = self.refSeq = None
-    def run(self, ref, qry, methods, min_id, min_cov, min_ratio, table_id=11, n_thread=8, useProcess=False, re_score=0, filter=[False, 0.9, 0.], linear_merge=[False, 300.,1.2], return_overlap=[True, 300, 0.6], fix_end=[6., 6.]) :
+    def run(self, ref, qry, methods, min_id, min_cov, min_ratio, table_id=11, n_thread=1, useProcess=False, re_score=0, filter=[False, 0.9, 0.], linear_merge=[False, 300.,1.2], return_overlap=[True, 300, 0.6], fix_end=[6., 6.]) :
         tools = dict(blastn=self.runBlast, diamond=self.runDiamond, diamondself=self.runDiamondSELF)
         self.min_id = min_id
         self.min_cov = min_cov
@@ -588,7 +588,7 @@ def uberBlast(args, extPool=None) :
     parser.add_argument('--overlap_length', help='[DEFAULT: 300] Minimum overlap to report', default=300, type=float)
     parser.add_argument('--overlap_proportion', help='[DEFAULT: 0.6] Minimum overlap proportion to report', default=0.6, type=float)
     parser.add_argument('-e', '--fix_end', help='[FORMAT: L,R; DEFAULT: 0,0] Extend alignment to the edges if the un-aligned regions are <= [L,R] basepairs.', default='0,0')
-    parser.add_argument('-t', '--n_thread', help='[DEFAULT: 8] Number of threads to use. ', type=int, default=1)
+    parser.add_argument('-t', '--n_thread', help='[DEFAULT: 1] Number of threads to use. ', type=int, default=1)
     parser.add_argument('-p', '--process', help='[DEFAULT: False] Use processes instead of threads. ', action='store_true', default=False)
     
     args = parser.parse_args(args)

@@ -33,7 +33,7 @@ def clust(argv) :
     return exemplar, clust
 def getClust(prefix, genes, params) :
     groups = {}
-    dirPath = tempfile.mkdtemp(prefix='NS_', dir='.')
+    dirPath = tempfile.mkdtemp(prefix='NS_')
     try:
         if not params['translate'] :
             geneFile = genes

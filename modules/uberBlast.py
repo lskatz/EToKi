@@ -339,7 +339,7 @@ class RunBlast(object) :
             self.pool = useProcess
 
         blastab = []
-        self.dirPath = tempfile.mkdtemp(prefix='NS_', dir='.')
+        self.dirPath = tempfile.mkdtemp(prefix='NS_')
         try :
             for method in methods :
                 if method.lower() in tools :

@@ -614,7 +614,7 @@ class seqOperation(object) :
 def nomenclature(genome, refAllele, parameters) :
     # write query
     # TODO make this NS_ tempdir somewhere like /tmp instead of cluttering up the cwd
-    dirPath = tempfile.mkdtemp(prefix='NS_', dir='.')
+    dirPath = tempfile.mkdtemp(prefix='NS_')
     try :
         # Put the query genome and reference alleles into the tempdir
         qry = os.path.join(dirPath, 'query')

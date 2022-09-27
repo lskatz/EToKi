@@ -52,7 +52,7 @@ def minimapFilter(sourceFna, targetFna, targetFiltFna, max_iden, min_iden, cover
 
 def buildReference(alleles, references, max_iden=0.9,  min_iden=0.6, coverage=0.7, paralog=0.1, relaxEnd=False) :
     orderedLoci = { t['fieldname']:i for i, t in reversed(list(enumerate(references))) }
-    with tempfile.TemporaryDirectory(prefix='NS_', dir='.') as dirPath :
+    with tempfile.TemporaryDirectory(prefix='NS_') as dirPath :
         sourceFna = os.path.join(dirPath, 'sourceFna')
         clsFna = os.path.join(dirPath, 'clsFna')
         targetFna = os.path.join(dirPath, 'targetFna')

@@ -2,3 +2,5 @@ static/*
 examples/*_out*
 *.ini
 *.pyc
+
+externals/*

@@ -519,7 +519,7 @@ class seqOperation(object) :
 
 def nomenclature(genome, refAllele, parameters) :
     # write query
-    dirPath = tempfile.mkdtemp(prefix='NS_', dir='.')
+    dirPath = tempfile.mkdtemp(prefix='NS_')
     try :
         qry = os.path.join(dirPath, 'query')
         ref = os.path.join(dirPath, 'reference')

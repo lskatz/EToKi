@@ -397,7 +397,7 @@ def filt_per_group(data) :
 
         for ite in xrange(3) :
             try :
-                tmpFile = tempfile.NamedTemporaryFile(dir='.', delete=False)
+                tmpFile = tempfile.NamedTemporaryFile(delete=False)
                 for n, s in tags.items() :
                     tmpFile.write('>X{0}\n{1}\n{2}'.format(n, s, '\n'*ite).encode('utf-8'))
                 tmpFile.close()
@@ -1583,7 +1583,7 @@ EToKi.py ortho
     parser.add_argument('-o', '--orthology', help='Method to define orthologous groups. \nnj [default], ml (for small dataset) or sbh (extremely large datasets)', default='nj')
     parser.add_argument('-n', '--neighborhood', help='No. of orthologous neighborhood for paralog splitting. Set to 0 to disable this step. ', default=2, type=int)
 
-    parser.add_argument('-t', '--n_thread', help='Number of threads. Default: 20', default=20, type=int)
+    parser.add_argument('-t', '--n_thread', help='Number of threads. Default: 1', default=1, type=int)
     parser.add_argument('--min_cds', help='Minimum length of a reference CDS. Default: 150.', default=150., type=float)
     parser.add_argument('--incompleteCDS', help="Allowed types of imperfection for reference genes. Default: ''. \n's': allows unrecognized start codon. \n'e': allows unrecognized stop codon. \n'i': allows stop codons in the coding region. \n'f': allows frameshift in the coding region. \nMultiple keywords can be used together. e.g., use 'sife' to allow random sequences.", default='')
     parser.add_argument('--gtable', help='translate table to Use. Default: 11.', default=11, type=int)

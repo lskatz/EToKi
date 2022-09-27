@@ -938,7 +938,7 @@ def prepReference(prefix, ref_tag, reference, aligner, pilercr, trf, **args) :
         else :
             subprocess.Popen('{0} -cR01 {2}.mmi {1}'.format(aligner[0], reference, prefix).split()).communicate()
         import tempfile
-        with tempfile.NamedTemporaryFile(dir='.') as tf :
+        with tempfile.NamedTemporaryFile() as tf :
             seq, _ = readFastq(reference)
             tf_fas = '{0}.fasta'.format(tf.name)
             with open(tf_fas, 'wt') as fout:

@@ -39,7 +39,7 @@ def parseBAMs(fnames, sites) :
     knownSamples = np.zeros([sites.shape[0], len(fnames), 4])
 
     from tempfile import NamedTemporaryFile
-    tmpFile = NamedTemporaryFile(delete=False, dir='.')
+    tmpFile = NamedTemporaryFile(delete=False)
     siteMap = {}
     for i, s in enumerate(sites) :
         tmpFile.write('{0}\t{1}\n'.format(*s[0]).encode('utf-8'))

@@ -81,7 +81,7 @@ def cgMLST(args) :
         alleles.update(readFasta(allele_file, allele_names))
 
     allele_stat = {}
-    with tempfile.TemporaryDirectory(dir='.', prefix='CG_') as tmpdir:
+    with tempfile.TemporaryDirectory(prefix='CG_') as tmpdir:
         allele_list = list(alleles.items())
         fnames = []
         for i in np.arange(8):

@@ -203,7 +203,7 @@ class mainprocess(object) :
                         circular[part[0]] = 1
         cmd = '{makeblastdb} -dbtype nucl -in {0}'.format(input_name, **externals)
         Popen(cmd, shell=True).communicate()
-        cmd = '{blastn} -num_threads 8 -db {0} -query {0} -outfmt "6 qacc sacc pident length mismatch gapopen qstart qend sstart send evalue score qlen slen"'.format(input_name, **externals)
+        cmd = '{blastn} -num_threads 1 -db {0} -query {0} -outfmt "6 qacc sacc pident length mismatch gapopen qstart qend sstart send evalue score qlen slen"'.format(input_name, **externals)
         p = Popen(cmd, shell=True, universal_newlines=True, stdout=PIPE)
         matches = pd.read_csv(p.stdout, sep='\t', header=None).values
         matches = matches[(matches.T[2] >= 98.5) & (matches.T[3] >= 1000)]
@@ -787,7 +787,7 @@ class postprocess(object) :
             for n, s in sorted(seq.items()) :
                 if s[0] > 1000 :
                     fout.write('>{0}\n{1}\n'.format(n, s[2]))
-        cmd = '{kraken2} -db {kraken_database} --threads 8 --output - --report {assembly}.kraken {assembly}.filter'.format(
+        cmd = '{kraken2} -db {kraken_database} --threads 1 --output - --report {assembly}.kraken {assembly}.filter'.format(
             assembly=assembly, **parameters
         )
             

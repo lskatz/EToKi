@@ -265,7 +265,7 @@ def filt_per_group(data) :
 
         for ite in xrange(3) :
             try :
-                tmpFile = tempfile.NamedTemporaryFile(dir='.', delete=False)
+                tmpFile = tempfile.NamedTemporaryFile(delete=False)
                 for n, s in tags.items() :
                     tmpFile.write('>X{0}\n{1}\n{2}'.format(n, s, '\n'*ite).encode('utf-8'))
                 tmpFile.close()

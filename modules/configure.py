@@ -399,8 +399,10 @@ def configure(args) :
     args = add_args(args)
 
     for key, value in args.__dict__.items() :
-        if value is not None :
-            configs[configs.T[0] == key, 1] = value
+        # Allow multiple --path
+        if key != 'path':
+            if value is not None :
+                configs[configs.T[0] == key, 1] = value
     externals = prepare_externals(conf=configs)
     if args.install :
         install_externals()
